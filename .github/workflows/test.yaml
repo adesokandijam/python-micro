@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: install python 3.9
-        run: apt-get install python3.9
+        run: sudo apt-get install -y python3.9
       - name: create a virtual env
         run: python3 -m venv ./venv
       - name: activate virtual env
