@@ -1,6 +1,8 @@
 name: "run python tests"
 on: 
   push:
+    paths:
+      - "user_backend/*"
     branches:
       - "feature-1"
 jobs:
