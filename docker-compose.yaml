@@ -13,7 +13,7 @@ services:
             - ./ThoughtsBackend:/opt/code
 
     test-postgresql:
-        env_file: environment.env
+        #env_file: environment.env
         environment:
             - PYTHONDONTWRITEBYTECODE=1
         build:
@@ -42,7 +42,7 @@ services:
 
     # Producion related
     server:
-        env_file: environment.env
+        #ßenv_file: environment.env
         image: thoughts_server
         build:
             context: .
