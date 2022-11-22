@@ -8,10 +8,18 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-      - name: run init db
-        run: pip install -r ThoughtsBackend/requirements.txt ; python ThoughtsBackend/init_db.py
-      - name: Build the stack
-        run: docker-compose up test-sqlite
+      - name: create a virtual env
+        run: python3 -m venv ./venv
+      - name: activate virtual env
+        run: source ./venv/bin/activate
+      - name: install requirements
+        run: pip install -r ThoughtsBackend/requirements.txt
+      - name: initialize db
+        run: python ThoughtsBackend/init_db.py
+      - name: run test
+        run: pytest
+      #- name: Build the stack
+       # run: docker-compose up test-sqlite
   
 
 
