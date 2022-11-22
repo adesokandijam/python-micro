@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 from flask_sqlalchemy import SQLAlchemy
 
-DATABASE_ENGINE = os.environ.get('DATABASE_ENGINE', 'SQLITE')
+DATABASE_ENGINE = os.environ.get('DATABASE_ENGINE')
 
 if DATABASE_ENGINE == 'SQLITE':
     dir_path = Path(os.path.dirname(os.path.realpath(__file__)))
