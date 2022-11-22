@@ -43,18 +43,6 @@ services:
             context: .
         entrypoint: flake8
 
-    db:
-        build:
-            context: .
-            dockerfile: ./docker/db/Dockerfile
-            args:
-                # These values should be in sync with environment
-                # for development. If you change them, you'll 
-                # need to rebuild the container
-                - POSTGRES_DB=thoughts
-                - POSTGRES_USER=postgres
-                - POSTGRES_PASSWORD=somepassword
-                - POSTGRES_PORT=5432
 
     # Producion related
     # Note that db-debug is the same as db, but it exposes locally
@@ -67,21 +55,6 @@ services:
             - POSTGRES_DB=thoughts
         ports:
             - '5432:5432' 
-    db-debug:
-        build:
-            context: .
-            dockerfile: ./docker/db/Dockerfile
-            args:
-                # These values should be in sync with environment
-                # for development. If you change them, you'll 
-                # need to rebuild the container
-                - POSTGRES_DB=thoughts
-                - POSTGRES_USER=postgres
-                - POSTGRES_PASSWORD=somepassword
-                - POSTGRES_PORT=5432
-        ports:
-            - "5432:5432"
-
     server:
         env_file: environment.env
         image: users_server
