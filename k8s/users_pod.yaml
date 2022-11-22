@@ -1,13 +1,14 @@
 apiVersion: v1
 kind: Pod
 metadata:
+  creationTimestamp: null
   labels:
-    run: backend
-  name: backend
+    run: user
+  name: user
 spec:
   containers:
-  - image: 087380303747.dkr.ecr.eu-west-2.amazonaws.com/thoughts_backend:10dfb1e8736341e3ed6aa9c5c3c938de08683ab3
-    name: backend
+  - image: 087380303747.dkr.ecr.eu-west-2.amazonaws.com/users_backend:31732f392242ea8801c0775ae21b1bf513ae7e75
+    name: user
     env:
     - name: DATABASE_ENGINE
       value: POSTGRESQL
@@ -21,8 +22,6 @@ spec:
       value: "5432"
     - name: POSTGRES_HOST
       value: db
-    ports:
-    - containerPort: 8080
     resources: {}
   dnsPolicy: ClusterFirst
   restartPolicy: Always

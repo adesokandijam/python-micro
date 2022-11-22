@@ -56,6 +56,7 @@ COPY --chown=uwsgi:uwsgi . /opt/code/
 # Run parameters
 WORKDIR /opt/code
 EXPOSE 8000
-#RUN flask db init
+RUN flask db init
+RUN flask db migrate
 #RUN flask db upgrade
 CMD [ "/bin/sh", "/opt/uwsgi/start_server.sh"]
