@@ -1,0 +1,17 @@
+name: "run python tests"
+on: 
+  push:
+    branches:
+      - "feature-1"
+jobs:
+  test:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the stack
+        run: docker-compose up test-sqlite
+  
+
+
+
+    
