@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build the stack
-        run: docker-compose up test-sqlite
+        run: docker-compose up static-analysis
   
 
 
