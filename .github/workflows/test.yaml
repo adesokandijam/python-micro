@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: run init db
-        run: pip install -r requirements.txt ; python ThoughtsBackend/init_db.py
+        run: pip install -r ThoughtsBackend/requirements.txt ; python ThoughtsBackend/init_db.py
       - name: Build the stack
         run: docker-compose up test-sqlite
   
