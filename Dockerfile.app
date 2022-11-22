@@ -11,6 +11,8 @@ RUN apk add --update python3
 RUN mkdir -p /opt/code
 WORKDIR /opt/code
 
+
+
 # Install dependencies
 RUN apk add python3-dev build-base gcc linux-headers postgresql-dev libffi-dev
 
@@ -54,4 +56,6 @@ COPY --chown=uwsgi:uwsgi ThoughtsBackend/ /opt/code/
 # Run parameters
 WORKDIR /opt/code
 EXPOSE 8000
-CMD ["/bin/sh", "/opt/uwsgi/start_server.sh"]
+#RUN flask db init
+#RUN flask db upgrade
+CMD [ "/bin/sh", "/opt/uwsgi/start_server.sh"]
