@@ -25,7 +25,7 @@ RUN pip3 install --upgrade pip
 # Install and compile uwsgi
 RUN pip3 install uwsgi==2.0.18
 # Install other dependencies
-COPY ThoughtsBackend/requirements.txt /opt/
+COPY ./requirements.txt /opt/
 RUN pip3 install -r /opt/requirements.txt
 
 ########
