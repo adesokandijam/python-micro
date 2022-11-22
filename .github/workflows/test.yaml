@@ -21,7 +21,7 @@ jobs:
       #- name: run test
        # run: pytest
       - name: Build the stack
-        run: docker-compose up test
+        run: docker-compose up static-analysis
   
 
 
