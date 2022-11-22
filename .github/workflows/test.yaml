@@ -20,8 +20,6 @@ jobs:
        # run: python ThoughtsBackend/init_db.py
       #- name: run test
        # run: pytest
-      - name: build docker image
-        run: docker-compose build db
       - name: Run tests
         run: docker-compose up test
       - name: Run static analysis with flake
