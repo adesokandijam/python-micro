@@ -18,3 +18,5 @@ if __name__ == '__main__':
         application.db.session.add(user)
 
     application.db.session.commit()
+
+
