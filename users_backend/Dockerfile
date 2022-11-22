@@ -55,5 +55,5 @@ COPY --chown=uwsgi:uwsgi UsersBackend/ /opt/code/
 # Run parameters
 WORKDIR /opt/code
 EXPOSE 8000
-RUN python /opt/code/load_test_data.py
+#RUN python /opt/code/load_test_data.py
 CMD ["/bin/sh", "/opt/uwsgi/start_server.sh"]
