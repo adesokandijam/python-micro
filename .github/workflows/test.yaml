@@ -16,8 +16,8 @@ jobs:
         run: source ./venv/bin/activate
       - name: install requirements
         run: pip install -r ThoughtsBackend/requirements.txt
-      - name: initialize db
-        run: python ThoughtsBackend/init_db.py
+      #- name: initialize db
+       # run: python ThoughtsBackend/init_db.py
       - name: run test
         run: pytest
       #- name: Build the stack
