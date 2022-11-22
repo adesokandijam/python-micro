@@ -6,7 +6,7 @@ metadata:
   name: backend
 spec:
   containers:
-  - image: 087380303747.dkr.ecr.eu-west-2.amazonaws.com/thoughts_backend:latest
+  - image: 087380303747.dkr.ecr.eu-west-2.amazonaws.com/thoughts_backend:10dfb1e8736341e3ed6aa9c5c3c938de08683ab3
     name: backend
     env:
     - name: DATABASE_ENGINE
