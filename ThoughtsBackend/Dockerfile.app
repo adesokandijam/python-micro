@@ -51,7 +51,7 @@ COPY --chown=uwsgi:uwsgi --from=compile-image /opt/venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
 # Copy the code
-COPY --chown=uwsgi:uwsgi ThoughtsBackend/ /opt/code/
+COPY --chown=uwsgi:uwsgi . /opt/code/
 
 # Run parameters
 WORKDIR /opt/code
