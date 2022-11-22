@@ -7,21 +7,21 @@ jobs:
   test:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
-      - name: install python 3.9
-        run: sudo apt-get install -y python3.9
-      - name: create a virtual env
-        run: python3 -m venv ./venv
-      - name: activate virtual env
-        run: source ./venv/bin/activate
-      - name: install requirements
-        run: pip install -r ThoughtsBackend/requirements.txt
+     # - uses: actions/checkout@v2
+      #- name: install python 3.9
+       # run: sudo apt-get install -y python3.9
+      #- name: create a virtual env
+       # run: python3 -m venv ./venv
+      #- name: activate virtual env
+       # run: source ./venv/bin/activate
+      #- name: install requirements
+      #  run: pip install -r ThoughtsBackend/requirements.txt
       #- name: initialize db
        # run: python ThoughtsBackend/init_db.py
-      - name: run test
-        run: pytest
-      #- name: Build the stack
-       # run: docker-compose up test-sqlite
+      #- name: run test
+       # run: pytest
+      - name: Build the stack
+        run: docker-compose up test
   
 
 
