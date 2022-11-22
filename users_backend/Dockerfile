@@ -5,6 +5,7 @@
 ########
 FROM alpine:3.9 AS compile-image
 
+
 # Add requirements for python and pip
 RUN apk add --update python3
 

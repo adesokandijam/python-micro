@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: backend
+  name: backend
+spec:
+  containers:
+  - image: 087380303747.dkr.ecr.eu-west-2.amazonaws.com/thoughts_backend:10dfb1e8736341e3ed6aa9c5c3c938de08683ab3
+    name: backend
+    env:
+    - name: DATABASE_ENGINE
+      value: POSTGRESQL
+    - name: POSTGRES_DB
+      value: thoughts
+    - name: POSTGRES_USER
+      value: postgres
+    - name: POSTGRES_PASSWORD
+      value: somepassword
+    - name: POSTGRES_PORT
+      value: "5432"
+    - name: POSTGRES_HOST
+      value: db
+    ports:
+    - containerPort: 8080
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
