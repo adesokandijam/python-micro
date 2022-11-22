@@ -6,7 +6,7 @@ services:
         environment:
             - PYTHONDONTWRITEBYTECODE=1
         build:
-            dockerfile: docker/app/Dockerfile
+            dockerfile: Dockerfile.app
             context: .
         entrypoint: pytest
         volumes:
@@ -17,7 +17,7 @@ services:
         environment:
             - PYTHONDONTWRITEBYTECODE=1
         build:
-            dockerfile: docker/app/Dockerfile
+            dockerfile: Dockerfile.app
             context: .
         entrypoint: pytest
         depends_on:
@@ -31,7 +31,7 @@ services:
         environment:
             - PYTHONDONTWRITEBYTECODE=1
         build:
-            dockerfile: docker/app/Dockerfile
+            dockerfile: Dockerfile.app
             context: .
         entrypoint: pytest
         depends_on:
@@ -39,14 +39,14 @@ services:
 
     static-analysis:
         build:
-            dockerfile: docker/app/Dockerfile
+            dockerfile: Dockerfile.app
             context: .
         entrypoint: flake8
 
     db:
         build:
             context: .
-            dockerfile: ./docker/db/Dockerfile
+            dockerfile: Dockerfile.db
             args:
                 # These values should be in sync with environment
                 # for development. If you change them, you'll 
@@ -62,7 +62,7 @@ services:
     db-debug:
         build:
             context: .
-            dockerfile: ./docker/db/Dockerfile
+            dockerfile: Dockerfile.db
             args:
                 # These values should be in sync with environment
                 # for development. If you change them, you'll 
@@ -79,7 +79,7 @@ services:
         image: thoughts_server
         build:
             context: .
-            dockerfile: docker/app/Dockerfile
+            dockerfile: Dockerfile.app
         ports:
             - "8000:8000"
         depends_on:
