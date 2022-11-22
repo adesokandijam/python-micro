@@ -15,11 +15,11 @@ jobs:
           images: name/app
       - name: Run tests
         run: |
-          cd UsersBackend
+          cd users_backend
           docker-compose up test
       - name: Run static analysis with flake
         run: |
-          cd UsersBackend
+          cd users_backend
           docker-compose up static-analysis
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -37,7 +37,7 @@ jobs:
           ECR_REPOSITORY: users_backend
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          cd UsersBackend
+          cd users_backend
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile.app .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
