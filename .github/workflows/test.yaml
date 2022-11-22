@@ -8,8 +8,10 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
+      - name: run init db
+        run: python ThoughtsBackend/init_db.py
       - name: Build the stack
-        run: docker-compose up static-analysis
+        run: docker-compose up test-sqlite
   
 
 
