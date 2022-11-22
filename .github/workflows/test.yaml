@@ -6,8 +6,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-18.04
+    container: python:3.9
     steps:
-      - uses: actions/checkout@v2
       - name: create a virtual env
         run: python3 -m venv ./venv
       - name: activate virtual env
