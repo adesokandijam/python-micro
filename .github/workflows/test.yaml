@@ -20,10 +20,19 @@ jobs:
        # run: python ThoughtsBackend/init_db.py
       #- name: run test
        # run: pytest
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: name/app
       - name: Run tests
-        run: docker-compose up test
+        run: |
+          cd ThoughtsBackend
+          docker-compose up test
       - name: Run static analysis with flake
-        run: docker-compose up static-analysis
+        run: |
+          cd ThoughtsBackend
+          docker-compose up static-analysis
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -38,10 +47,10 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: thoughts_backend
-          IMAGE_TAG: latest
+          IMAGE_TAG: ${{ steps.meta.outputs.tags }}
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile.app .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:${{ steps.meta.outputs.tags }} -f Dockerfile.app ./ThoughtsBackend
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:${{ steps.meta.outputs.tags }}
 
 
     
