@@ -63,5 +63,5 @@ services:
             dockerfile: Dockerfile
         ports:
             - "8001:8000"
-        depends_on:
-            - dbb
+        #depends_on:
+         #   - dbb

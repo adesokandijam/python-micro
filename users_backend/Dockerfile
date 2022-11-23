@@ -55,5 +55,16 @@ COPY --chown=uwsgi:uwsgi UsersBackend/ /opt/code/
 # Run parameters
 WORKDIR /opt/code
 EXPOSE 8000
-#RUN python /opt/code/load_test_data.py
+ENV DATABASE_ENGINE=POSTGRESQL
+ENV POSTGRES_DB=thoughts
+ENV POSTGRES_USER=postgres
+ENV POSTGRES_PASSWORD=somepassword
+ENV POSTGRES_PORT=5432
+ENV POSTGRES_HOST=users.cjrx4utycoil.eu-west-2.rds.amazonaws.com
+ENV FLASK_APP=wsgi.py
+RUN flask db init
+RUN flask db stamp head
+RUN flask db migrate
+RUN flask db upgrade
+RUN python /opt/code/load_test_data.py
 CMD ["/bin/sh", "/opt/uwsgi/start_server.sh"]

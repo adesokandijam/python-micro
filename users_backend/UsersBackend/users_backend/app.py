@@ -1,5 +1,8 @@
 from flask import Flask
 from flask_restplus import Api
+from flask_migrate import Migrate
+
+migrate = Migrate()
 
 
 def create_app():
@@ -15,6 +18,7 @@ def create_app():
     application.config.update(db_config)
     db.init_app(application)
     application.db = db
+    migrate.init_app(application, db)
 
     api.add_namespace(api_namespace)
     api.add_namespace(admin_namespace)
