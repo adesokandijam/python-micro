@@ -61,7 +61,7 @@ ENV POSTGRES_DB=thoughts
 ENV POSTGRES_USER=postgres
 ENV POSTGRES_PASSWORD=somepassword
 ENV POSTGRES_PORT=5432
-ENV POSTGRES_HOST=thoughts.cjrx4utycoil.eu-west-2.rds.amazonaws.com
+ENV POSTGRES_HOST=
 
 ENV FLASK_APP=/opt/code/wsgi.py
 RUN flask db init
